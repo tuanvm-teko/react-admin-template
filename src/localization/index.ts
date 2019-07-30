@@ -1,5 +1,6 @@
 import vi from './vi';
 import en from './en';
+import requestLocalizations from './requestLocalizations';
 
 const languages = {
   vi: { translations: vi.translations },
@@ -17,4 +18,4 @@ const regions = {
   },
 };
 
-export { languages, regions };
+export { languages, regions, requestLocalizations };

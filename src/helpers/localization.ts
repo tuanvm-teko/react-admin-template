@@ -1,5 +1,14 @@
-import { regions } from 'localization';
+import { regions, requestLocalizations } from 'localization';
 import { languageConstants, localStorageConstants } from '../constants';
+
+const localize = (key: string, lang?: string) => {
+  const language = lang || languageConstants.VIETNAM;
+  const localization = requestLocalizations[key];
+  if (localization && localization[language]) {
+    return localization[language];
+  }
+  return key;
+};
 
 const getCurrentLanguage = () => {
   let language =
@@ -18,6 +27,7 @@ const changeLanguage = (newLanguage: string) => {
 };
 
 export default {
+  localize,
   getCurrentLanguage,
   changeLanguage,
 };
