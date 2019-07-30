@@ -1,16 +1,15 @@
+import { authConstants, localStorageConstants } from 'constants/index';
 import { useEffect } from 'react';
 import { useGlobal } from 'reactn';
-import { authConstants, localStorageConstants } from 'constants/index';
 import { userServices } from 'services';
 
 export const useUserInfo = () => {
   const [currentUser, setCurrentUser] = useGlobal<any>(
     authConstants.KEY_CURRENT_USER,
   );
-  const [
-    currentPermissions,
-    //  setCurrentPermissions
-  ] = useGlobal<any>(authConstants.KEY_CURRENT_PERMISSIONS);
+  const [currentPermissions, setCurrentPermissions] = useGlobal<any>(
+    authConstants.KEY_CURRENT_PERMISSIONS,
+  );
 
   useEffect(() => {
     if (userServices.getAccessToken() && !currentUser) {
@@ -29,8 +28,8 @@ export const useUserInfo = () => {
   }
 
   return {
-    currentUser,
     currentPermissions,
+    currentUser,
   };
 };
 
