@@ -10,24 +10,26 @@ interface PropsT extends RouteProps {
 }
 
 export default (props: PropsT) => {
-  if (!userServices.getAccessToken()) {
-    return <Redirect to="/login" />;
-  }
-
-  const { currentUser, currentPermissions } = useUserInfo();
   const { component: Component, ...rest } = props;
-  if (!currentUser) {
-    return <Redirect to="/login" />;
-  }
-  if (currentPermissions && currentPermissions.length === 0) {
-    return <Page403 />;
-  }
+  // if (!userServices.getAccessToken()) {
+  //   return <Redirect to="/login" />;
+  // }
+
+  // const { currentUser, currentPermissions } = useUserInfo();
+
+  // if (!currentUser) {
+  //   return <Redirect to="/login" />;
+  // }
+  // if (currentPermissions && currentPermissions.length === 0) {
+  //   return <Page403 />;
+  // }
 
   return (
     <Route
       {...rest}
       render={routeProps => (
-        <Component {...routeProps} activeUser={currentUser} />
+        // <Component {...routeProps} activeUser={currentUser} />
+        <Component {...routeProps} activeUser={{}} />
       )}
     />
   );

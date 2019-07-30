@@ -1,9 +1,12 @@
 import React from 'react';
-import i18n from 'i18n';
-
+import i18next from 'i18next';
+import Loadable from 'react-loadable';
 import DefaultLayout from '../components/DefaultLayout';
 
-const Dashboard = React.lazy(() => import('../screens/Dashboard'));
+const Dashboard = Loadable({
+  loader: () => import('../screens/Dashboard'),
+  loading: () => <p>loading...</p>,
+});
 
 const routes: any = [
   {
@@ -15,7 +18,7 @@ const routes: any = [
   {
     path: '/dashboard',
     exact: true,
-    name: i18n.__('Dashboard'),
+    name: i18next.t('Dashboard'),
     component: Dashboard,
   },
 ];

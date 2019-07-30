@@ -21,7 +21,8 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "reactn": "^2.1.7",
-    "typescript": "^3.5.3"
+    "typescript": "^3.5.3",
+    "uuid": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -58,6 +59,7 @@
     "@types/react-loadable": "^5.5.1",
     "@types/react-router-dom": "^4.3.4",
     "@types/storybook__react": "^4.0.2",
+    "@types/uuid": "^3.4.5",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.6",
     "jest": "^24.8.0",
