@@ -4,8 +4,6 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { I18nextProvider } from 'react-i18next';
-import { localizationHelper } from 'helpers';
-import { languages } from 'localization';
 import i18n from './i18n';
 
 ReactDOM.render(

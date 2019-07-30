@@ -1,10 +1,11 @@
 import React from 'react';
-import DefaultLayout from '../components/DefaultLayout';
 import i18n from 'i18n';
+
+import DefaultLayout from '../components/DefaultLayout';
 
 const Dashboard = React.lazy(() => import('../screens/Dashboard'));
 
-const routes = [
+const routes: any = [
   {
     path: '/',
     exact: true,

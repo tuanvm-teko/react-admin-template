@@ -5,7 +5,7 @@ import Loadable from 'react-loadable';
 import 'configs';
 
 const browserHistory = createBrowserHistory();
-// import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
+// import PrivateRoute from './components/PrivateRoute';
 
 const loading = () => (
   <div className="animated fadeIn pt-3 text-center">Loading...</div>
@@ -13,7 +13,7 @@ const loading = () => (
 
 // Containers
 // const DefaultLayout = Loadable({
-//   loader: () => import('./components/DefaultLayout/DefaultLayout'),
+//   loader: () => import('./components/DefaultLayout'),
 //   loading,
 // });
 
@@ -46,7 +46,7 @@ function App() {
         {/* <Route exact path="/404" name="Page 404" component={Page404} />
         <Route exact path="/403" name="Page 403" component={Page403} />
         <Route exact path="/500" name="Page 500" component={Page500} />
-        <PrivateRoute path="/" name="Home" component={DefaultLayout} /> */}
+        <PrivateRoute path="/" name="Home" component={DefaultLayout} />*/}
       </Switch>
     </Router>
   );
