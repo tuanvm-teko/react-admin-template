@@ -24,7 +24,7 @@ export default (props: any) => (
     <Sider />
     <Layout style={{ marginLeft: 200 }}>
       <Header />
-      <Content>
+      <Content style={{ marginTop: 64 }}>
         <Suspense fallback={loading}>
           <Switch>
             <Redirect exact from="/" to="/dashboard" />
