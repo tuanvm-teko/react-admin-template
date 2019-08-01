@@ -5,7 +5,7 @@ export default {
     {
       name: i18next.t('Home'),
       url: '/dashboard',
-      icon: 'icon-speedometer',
+      icon: 'user',
       badge: {
         variant: 'info',
         text: 'HOME',
@@ -14,7 +14,7 @@ export default {
     {
       name: i18next.t('Note'),
       url: '/notes',
-      icon: 'fa fa-sticky-note',
+      icon: 'star',
     },
   ],
 };
