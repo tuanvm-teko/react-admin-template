@@ -22,6 +22,11 @@ const Login = Loadable({
   loading,
 });
 
+const Signup = Loadable({
+  loader: () => import('./screens/Signup'),
+  loading,
+});
+
 const Page404 = Loadable({
   loader: () => import('./screens/Page404'),
   loading,
@@ -42,6 +47,7 @@ function App() {
     <Router history={browserHistory}>
       <Switch>
         <Route exact path="/login" name="Login Page" component={Login} />
+        <Route exact path="/signup" name="Signup Page" component={Signup} />
         <Route exact path="/404" name="Page 404" component={Page404} />
         <Route exact path="/403" name="Page 403" component={Page403} />
         <Route exact path="/500" name="Page 500" component={Page500} />

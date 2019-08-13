@@ -1,17 +1,21 @@
 import React from 'react';
 import Screen from './screen';
-import { Formik, Field, Form, FormikActions } from 'formik';
+import { Formik, FormikActions } from 'formik';
 interface Values {
-  password: string;
+  firstName: string;
+  lastName: string;
   email: string;
+  password: string;
 }
 
-const LoginScreen: React.FC = props => {
+const SignupScreen: React.FC = props => {
   return (
     <Formik
       initialValues={{
-        password: '',
+        firstName: '',
+        lastName: '',
         email: '',
+        password: '',
       }}
       onSubmit={(values: Values, { setSubmitting }: FormikActions<Values>) => {
         setTimeout(() => {
@@ -24,4 +28,4 @@ const LoginScreen: React.FC = props => {
   );
 };
 
-export default LoginScreen;
+export default SignupScreen;
