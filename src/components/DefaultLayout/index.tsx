@@ -87,7 +87,7 @@ function DefaultLayout(props: any) {
                     />
                   ) : null,
                 )}
-                <Route path="*" name="Page 404" component={Page404} />
+                <Route path="*" render={() => <Redirect exact to="/404" />} />
               </Switch>
             </Suspense>
           </Container>
