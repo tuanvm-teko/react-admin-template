@@ -1,48 +1,91 @@
 import React from 'react';
-import { Layout, Menu, Icon } from 'antd';
+import {
+  Badge,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
+  Nav,
+  NavItem,
+  NavLink,
+} from 'reactstrap';
+import logo from 'assets/img/brand/logoPV.svg';
+import {
+  AppHeaderDropdown,
+  AppNavbarBrand,
+  AppSidebarToggler,
+  // @ts-ignore
+} from '@coreui/react';
+import Region from 'components/Region';
+import { regions } from 'localization';
 
-const { Header: HeaderAntd } = Layout;
+const Header: React.FC = (props: any) => {
+  const { onLogout, onChangeLanguage, language } = props;
 
-const Header: React.FC = props => {
   return (
-    <HeaderAntd style={{ position: 'fixed', zIndex: 1, left: 200, right: 0 }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <div style={{ display: 'flex' }}>
-          <div className="logo">Time for log</div>
-          <Menu
-            theme="dark"
-            mode="horizontal"
-            defaultSelectedKeys={['2']}
-            style={{ lineHeight: '62px' }}
-          >
-            <Menu.Item key="1">nav 1</Menu.Item>
-            <Menu.Item key="2">nav 2</Menu.Item>
-            <Menu.Item key="3">nav 3</Menu.Item>
-          </Menu>
-        </div>
-        <div>
-          <Menu mode="horizontal" style={{ lineHeight: '62px' }}>
-            <Menu.SubMenu
-              title={
-                <span className="submenu-title-wrapper">
-                  <Icon type="setting" />
-                  Navigation Three - Submenu
-                </span>
+    <React.Fragment>
+      <AppSidebarToggler className="d-lg-none" display="md" mobile />
+      <AppNavbarBrand
+        full={{
+          src: logo,
+          width: 45,
+          height: 45,
+          alt: 'Logo',
+        }}
+        minimized={{
+          src: logo,
+          width: 35,
+          height: 35,
+          alt: 'Logo',
+        }}
+      />
+      <AppSidebarToggler className="d-md-down-none" display="lg" />
+
+      <Nav className="d-md-down-none" navbar>
+        <NavItem className="px-3">
+          <NavLink href="/">Center</NavLink>
+        </NavItem>
+      </Nav>
+      <Nav className="ml-auto" navbar>
+        <AppHeaderDropdown direction="down">
+          <DropdownToggle nav>
+            <Region language={language} />
+          </DropdownToggle>
+          <DropdownMenu>
+            {Object.keys(regions).map(el => (
+              <DropdownItem key={el} onClick={() => onChangeLanguage(el)}>
+                <Region language={el} />
+              </DropdownItem>
+            ))}
+          </DropdownMenu>
+        </AppHeaderDropdown>
+
+        {/* <AppHeaderDropdown direction="down">
+          <DropdownToggle nav>
+            <span>{`Hi, ${currentUser && currentUser.name}`}</span>
+            <img
+              src={
+                (currentUser && currentUser.avatarUrl) ||
+                'https://s3.amazonaws.com/uifaces/faces/twitter/alexivanichkin/128.jpg'
               }
-            >
-              <Menu.ItemGroup title="Item 1">
-                <Menu.Item key="setting:1">Option 1</Menu.Item>
-                <Menu.Item key="setting:2">Option 2</Menu.Item>
-              </Menu.ItemGroup>
-              <Menu.ItemGroup title="Item 2">
-                <Menu.Item key="setting:3">Option 3</Menu.Item>
-                <Menu.Item key="setting:4">Option 4</Menu.Item>
-              </Menu.ItemGroup>
-            </Menu.SubMenu>
-          </Menu>
-        </div>
-      </div>
-    </HeaderAntd>
+              className="img-avatar"
+              alt="User"
+            />
+          </DropdownToggle>
+          <DropdownMenu right style={{ right: 'auto' }}>
+            <DropdownItem id="log-out-btn" onClick={e => onLogout(e)}>
+              <i className="fa fa-lock" /> Đăng xuất
+            </DropdownItem>
+          </DropdownMenu>
+        </AppHeaderDropdown> */}
+      </Nav>
+      {/* {modalVisible && (
+        <NotificationModal
+          visible={modalVisible}
+          onCancel={closeModal}
+          notifications={sortedNotifications}
+        />
+      )} */}
+    </React.Fragment>
   );
 };
 

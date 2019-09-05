@@ -8,7 +8,7 @@ const Dashboard = Loadable({
   loading: () => <p>loading...</p>,
 });
 
-const routes: any = [
+const routes = [
   {
     path: '/',
     exact: true,
