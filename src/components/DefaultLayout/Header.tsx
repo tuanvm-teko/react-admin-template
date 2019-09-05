@@ -18,7 +18,7 @@ import {
 import Region from 'components/Region';
 import { regions } from 'localization';
 
-const Header: React.FC = (props: any) => {
+const Header: React.FC<any> = props => {
   const { onLogout, onChangeLanguage, language } = props;
 
   return (

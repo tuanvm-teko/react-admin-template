@@ -21,18 +21,13 @@ import navigation from '_nav';
 import routes from 'routes';
 import { userServices } from 'services';
 import localizationHelper from 'helpers/localization';
-import Loadable from 'react-loadable';
 
-const DefaultFooter = React.lazy(() => import('./Footer'));
-const DefaultHeader: any = React.lazy(() => import('./Header'));
+import DefaultFooter from './Footer';
+import DefaultHeader from './Header';
+
 const loading = () => (
   <div className="animated fadeIn pt-1 text-center">Loading...</div>
 );
-
-const Page404 = Loadable({
-  loader: () => import('screens/Page404'),
-  loading,
-});
 
 function DefaultLayout(props: any) {
   const signOut = (e: Event) => {
@@ -49,13 +44,11 @@ function DefaultLayout(props: any) {
   return (
     <div className="app">
       <AppHeader fixed>
-        <Suspense fallback={loading}>
-          <DefaultHeader
-            onLogout={signOut}
-            onChangeLanguage={handleChangeLanguage}
-            language={language}
-          />
-        </Suspense>
+        <DefaultHeader
+          onLogout={signOut}
+          onChangeLanguage={handleChangeLanguage}
+          language={language}
+        />
       </AppHeader>
       <div className="app-body">
         <AppSidebar fixed display="lg">
