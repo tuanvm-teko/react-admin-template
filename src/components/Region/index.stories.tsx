@@ -5,6 +5,6 @@ import Region from './Region';
 
 storiesOf('Region', module).add('simple', () => (
   <BrowserRouter>
-    <Region />
+    <Region language="vi" />
   </BrowserRouter>
 ));

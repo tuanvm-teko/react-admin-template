@@ -2,7 +2,7 @@
 import React from 'react';
 import { regions } from 'localization';
 
-const Region = (props: any) => {
+const Region = (props: { language: string }) => {
   const { language } = props;
   const data = regions[language];
 
