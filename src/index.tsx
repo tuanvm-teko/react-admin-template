@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './less/index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { I18nextProvider } from 'react-i18next';
 import i18n from './i18n';
+import './styles/index.scss';
 import { languages } from 'localization';
 import { LocaleProvider } from 'antd';
 import { localizationHelper } from 'helpers';

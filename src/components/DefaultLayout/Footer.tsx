@@ -1,10 +1,11 @@
 import React from 'react';
-import { Layout } from 'antd';
-
-const { Footer: FooterAntd } = Layout;
 
 const Footer: React.FC = props => {
-  return <FooterAntd>Footer</FooterAntd>;
+  return (
+    <span>
+      <a href="https://coreui.io">Dev</a> &copy; 2019 Teko.
+    </span>
+  );
 };
 
 export default Footer;
